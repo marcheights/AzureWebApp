@@ -1,19 +1,39 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
-trigger:
-- main
-
-pool:
-  vmImage: ubuntu-latest
-
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+#name: "Azure Static Web Apps Deploy (Puppeteer)"
+description: "Deploys an application to Azure Static Web Apps"
+branding:
+  icon: "upload-cloud"
+  color: "blue"
+inputs:
+  action:
+    description: "Action to perform"
+    required: true
+  app_location:
+    description: "Directory location of the application source code"
+    required: true
+  azure_static_web_apps_api_token:
+    description: "Required token"
+    required: true
+  api_build_command:
+    description: "Custom command for Oryx to run when building Azure Functions source code"
+    required: false
+  api_location:
+    description: "Directory location of the Azure Functions source code"
+    required: false
+  app_artifact_location:
+    description: "Directory location of the compiled application code after building"
+    required: false
+  app_build_command:
+    description: "Custom command for Oryx to run when building application source code"
+    required: false
+  repo_token:
+    description: "Token for interacting with the Github repository. Currently used only for commenting on Pull Requests."
+    required: false
+  routes_location:
+    description: "Directory location where the routes.json file can be found in the source code"
+    required: false
+outputs:
+  static_web_app_url:
+    description: "Url of the application"
+runs:
+  using: "docker"
+  image: "Dockerfile"
