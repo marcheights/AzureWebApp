@@ -8,7 +8,7 @@ inputs:
     description: "Action to perform"
     required: true
   app_location:
-    description: "Directory location of the application source code"
+    description: "UK South"
     required: true
   azure_static_web_apps_api_token:
     description: "Required token"
@@ -17,7 +17,7 @@ inputs:
     description: "Custom command for Oryx to run when building Azure Functions source code"
     required: false
   api_location:
-    description: "Directory location of the Azure Functions source code"
+    description: "UK South"
     required: false
   app_artifact_location:
     description: "Directory location of the compiled application code after building"
@@ -33,7 +33,7 @@ inputs:
     required: false
 outputs:
   static_web_app_url:
-    description: "Url of the application"
+    description: "https://wordpress-cms-app.azurewebsites.net"
 runs:
   using: "docker"
   image: "Dockerfile"
